@@ -13,6 +13,7 @@ img{display: block;}
   height: 100%;
   /*background: pink;*/
 }
+/*头部*/
 #header{
   position: relative;
 }
@@ -44,9 +45,11 @@ margin-top: 15px;
 .list li:hover .down{
   width: 100%;
 }
+/*导航上*/
 .list li .up{
     color: #009EE0;
 }
+/*导航下*/
 .list li .down{
   position: absolute;
   left: 0;
@@ -55,6 +58,7 @@ margin-top: 15px;
   transition: width 1s;
   overflow: hidden;
 }
+/*小箭头*/
 .arrow{
   position:absolute ;
   left:50%;
@@ -67,6 +71,7 @@ margin-top: 15px;
   transition:left 1s;
 
 }
+/*内容区*/
 #content{
   position: absolute;
   top: 80px;
@@ -91,6 +96,7 @@ margin-top: 15px;
   position: relative;
 
 }
+/*内容区的主体内容*/
 #content-main li section{
   width: 1100px;
   height: 520px;
@@ -175,7 +181,7 @@ position: absolute;
 .home-point .active{
   background: white;
 }
-
+/*轮播*/
 .home-carousel .left-hide{
   visibility: hidden;
   animation: leftHide 2s linear;
@@ -352,4 +358,96 @@ position: absolute;
   49%{transform: translateX(-400px) }
   50%{transform: translateX(-400px) rotateY(180deg)}
   100%{transform: rotateY(180deg)}
+}
+/*第四屏*/
+ .about-txt{
+   margin-left: 50px;
+   margin-top:100px;
+ }
+.abour-firstPhoto{
+  position:absolute;
+  left: 750px;
+  top: 50px;
+  width: 260px ;
+  height: 200px;
+  border: 5px solid rgba(255,255,255,0.5);
+  border-radius: 8px;
+  z-index: 1;
+}
+.about .abour-firstPhoto:nth-child(4){
+  left: 600px;
+  top: 290px;
+}
+.abour-firstPhoto .about-one{
+  position: absolute;
+  left:0;
+  top:0;
+  width: 100%;
+  height: 100%;
+}
+.abour-firstPhoto .about-one li {
+  width:50% ;
+  height:50%;
+  float: left;
+  overflow: hidden;
+}
+.abour-firstPhoto .about-one li div{
+  width:100%;
+  height: 100%;
+  background-repeat:no-repeat;
+}
+.abour-firstPhoto .about-one li div{
+  background-image: url("../img/about1.jpg");
+  transition: transform 1s;
+}
+.about .abour-firstPhoto:nth-child(4) .about-one li div{
+  background-image: url("../img/about3.jpg");
+  transition: transform 1s;
+}
+.abour-firstPhoto .about-one li:nth-child(1) div{
+  background-position: 0 0;
+}
+.abour-firstPhoto .about-one li:nth-child(2) div{
+  background-position: 100% 0;
+}
+.abour-firstPhoto .about-one li:nth-child(3) div{
+  background-position: 0 100%;
+}
+.abour-firstPhoto .about-one li:nth-child(4) div{
+  background-position: 100% 100%;
+}
+.abour-firstPhoto .about-one:hover li:nth-child(1) div{
+  transform: translateY(100%);
+}
+.abour-firstPhoto .about-one:hover li:nth-child(2) div{
+  transform: translateX(-100%);
+}
+.abour-firstPhoto .about-one:hover li:nth-child(3) div{
+  transform: translateX(100%);
+}
+.abour-firstPhoto .about-one:hover li:nth-child(4) div{
+  transform: translateY(-100%);
+}
+/*线条*/
+.line{
+  position:absolute;
+  top: -12px;
+  left: 555px;
+  width: 357px;
+  height: 998px;
+  background: url("../img/greenLine.png");
+  background-repeat: no-repeat;
+
+}
+/*第五屏*/
+.team{
+  position: relative;
+}
+.team-txt{
+  position: absolute;
+  right: 0;
+  top:0;
+  width: 400px;
+  margin: 50px;
+
 }
