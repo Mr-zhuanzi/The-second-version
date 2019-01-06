@@ -449,5 +449,33 @@ position: absolute;
   top:0;
   width: 400px;
   margin: 50px;
-
 }
+.team-teacher{
+  width: 944px;
+  height: 448px;
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  margin-left: -472px;
+}
+.team-teacher li{
+  float: left;
+  width: 236px;
+  height: 100%;
+  background-image: url("../img/team.png");
+}
+.team-teacher li:nth-child(1){
+  background-position: 3px 0px;
+}
+.team-teacher li:nth-child(2){
+  background-position: -230px 0px;
+}
+.team-teacher li:nth-child(3){
+  background-position: -483px 0px;
+}
+.team-teacher li:nth-child(4){
+  background-position: -710px 0px;
+}
+
+
+

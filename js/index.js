@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded',function () {
     // 获取dom元素
+    // 第一屏元素
     var liNodes = document.querySelectorAll('.list li');
     var arrow = document.querySelector('.arrow');
     var downNodes = document.querySelectorAll('.down');
@@ -40,7 +41,7 @@ window.addEventListener('DOMContentLoaded',function () {
         // 让move函数移动
         contentUlNode.style.top = -nowIndex * contentHeight + 'px';
     }
-            move(2);
+            move(4);
     // 滚轮和内容的移动
     contentHandle();
     function contentHandle() {
@@ -128,4 +129,31 @@ window.addEventListener('DOMContentLoaded',function () {
     }
 
     // 自动轮播
-})
+    // 第五屏动画
+    teacher();
+    function teacher() {
+        // 移入li后，兄弟元素的亮度减少
+        var teaLis = document.querySelectorAll('.team-teacher li');
+        var teaUl=document.querySelector('.team-teacher');
+        // 给每一个li绑定移入事件
+        for(var i = 0;i < teaLis.length;i++){
+            teaLis[i].index = i;
+
+            teaLis[i].onmouseenter = function () {
+                // 其他li的透明度为0.8
+                for(var j = 0;j < teaLis.length;j++){
+                    teaLis[j].style.opacity = 0.5;
+                }
+                this.style.opacity = 1;
+            }
+
+        }
+        //  给每一个ul绑定移出事件
+            teaUl.onmouseleave = function () {
+            // 移出ul后每个li的透明度变为1
+                for(var i = 0;i < teaLis.length;i++){
+                teaLis[i].style.opacity = 1;
+            }
+        }
+    }
+});
