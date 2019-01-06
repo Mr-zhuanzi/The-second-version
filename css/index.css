@@ -476,6 +476,25 @@ position: absolute;
 .team-teacher li:nth-child(4){
   background-position: -710px 0px;
 }
+/*侧边导航*/
+#content #content-navSide{
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  }
+#content-navSide li{
+  width: 15px;
+  height: 15px;
+  /*background: yellow;*/
+  border: 1px solid white;
+  margin-top: 10px;
+  border-radius: 50%;
+}
+#content-navSide .active{
+ background: white;
+}
+
+
 
 
 

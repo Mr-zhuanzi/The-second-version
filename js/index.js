@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded',function () {
-    // 获取dom元素
-    // 第一屏元素
+    //  获取dom元素
+    //  第一屏元素
     var liNodes = document.querySelectorAll('.list li');
     var arrow = document.querySelector('.arrow');
     var downNodes = document.querySelectorAll('.down');
@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded',function () {
     var content = document.querySelector('#content');
     var contentHeight = content.offsetHeight;
     var nowIndex = 0;
-    //  头部 的完成
+    //  头部的完成
     header();
     function header() {
         // 让小箭头默认第一个li下面
@@ -153,6 +153,26 @@ window.addEventListener('DOMContentLoaded',function () {
             // 移出ul后每个li的透明度变为1
                 for(var i = 0;i < teaLis.length;i++){
                 teaLis[i].style.opacity = 1;
+            }
+        }
+    }
+
+    // 侧边导航
+    navSide();
+    function navSide() {
+        // 获取导航元素
+        var navSideLinodes=document.querySelectorAll('#content-navSide li')
+        // 给每一个li绑定点击事件
+        for(var i=0;i<navSideLinodes.length;i++){
+            navSideLinodes[i].index=i;
+            navSideLinodes[i].onclick=function () {
+               nowIndex=this.index;
+               move(nowIndex);
+
+               for(var j = 0;j<navSideLinodes.length;j++){
+                   navSideLinodes[j].className='';
+               }
+                this.className='active';
             }
         }
     }
