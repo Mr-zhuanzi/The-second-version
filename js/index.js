@@ -4,11 +4,15 @@ window.addEventListener('DOMContentLoaded',function () {
     var liNodes = document.querySelectorAll('.list li');
     var arrow = document.querySelector('.arrow');
     var downNodes = document.querySelectorAll('.down');
-
+    // 获取导航元素
+    var navSideLinodes=document.querySelectorAll('#content-navSide li');
+   // 获取内容元素
     var contentUlNode = document.querySelector('#content-main');
     var content = document.querySelector('#content');
     var contentHeight = content.offsetHeight;
     var nowIndex = 0;
+    var lastIndex = 0;
+
     //  头部的完成
     header();
     function header() {
@@ -40,9 +44,13 @@ window.addEventListener('DOMContentLoaded',function () {
             - arrow.offsetWidth / 2 + 'px';
         // 让move函数移动
         contentUlNode.style.top = -nowIndex * contentHeight + 'px';
+        // 与侧边导航相关联
+        navSideLinodes[lastIndex].className='';
+        navSideLinodes[nowIndex].className='active';
+        lastIndex = nowIndex;
     }
-            move(4);
-    // 滚轮和内容的移动
+
+                // 滚轮和内容的移动
     contentHandle();
     function contentHandle() {
     // 滚轮事件
@@ -52,7 +60,6 @@ window.addEventListener('DOMContentLoaded',function () {
     function wheel(event) {
         // 兼容
         event = event || window.event;
-
         var flag = '';
         if (event.wheelDelta) {
             //ie/chrome
@@ -69,16 +76,14 @@ window.addEventListener('DOMContentLoaded',function () {
                 flag = 'down'
             }
         }
-
         switch (flag) {
             case 'up' :
                 if (nowIndex > 0) {
                     // ul向上3 2 1递减
                     nowIndex--;
                     move(nowIndex);
-                    break;
+                     break;
                 }
-
             case 'down' :
                 if (nowIndex < 4) {
                     // ul向下1 2 3 递增
@@ -86,14 +91,11 @@ window.addEventListener('DOMContentLoaded',function () {
                     move(nowIndex);
                     break;
                 }
-
         }
-
         //禁止默认行为
         event.preventDefault && event.preventDefault();
         return false;
     }
-
 }
 
     // FIRSTVIEW
@@ -101,9 +103,7 @@ window.addEventListener('DOMContentLoaded',function () {
     function firstView() {
         var homeCnodes = document.querySelectorAll('.home-carousel li');
         var homePnodes = document.querySelectorAll('.home-point li');
-        var lastIndex = 0;
-        var nowIndex = 0;
-        // 给每一个小圆点绑定点击事件
+                // 给每一个小圆点绑定点击事件
         for(var i = 0;i < homePnodes.length;i++){
             homePnodes[i].index =i;
             homePnodes[i].onclick = function(){
@@ -158,22 +158,16 @@ window.addEventListener('DOMContentLoaded',function () {
     }
 
     // 侧边导航
-    navSide();
-    function navSide() {
-        // 获取导航元素
-        var navSideLinodes=document.querySelectorAll('#content-navSide li')
-        // 给每一个li绑定点击事件
+    // 给每一个li绑定点击事件
         for(var i=0;i<navSideLinodes.length;i++){
             navSideLinodes[i].index=i;
             navSideLinodes[i].onclick=function () {
                nowIndex=this.index;
                move(nowIndex);
-
-               for(var j = 0;j<navSideLinodes.length;j++){
-                   navSideLinodes[j].className='';
-               }
-                this.className='active';
+               // for(var j = 0;j<navSideLinodes.length;j++){
+               //     navSideLinodes[j].className='';
+               // }
+               //  this.className='active';
             }
         }
-    }
-});
+    });
